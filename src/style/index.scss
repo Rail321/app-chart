@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+.container {
+  &, &_xs, &_sm, &_md, &_lg, &_xl, &_xxl { margin: 0 auto; }
+
+  &_xs { max-width: 320px; }
+  &_sm { max-width: 576px; }
+  &_md { max-width: 768px; }
+  &_lg { max-width: 992px; }
+  &_xl { max-width: 1200px; }
+  &_xxl { max-width: 1400px; }
+}
+
+.p {
+  &-1 { padding: 10px; }
+}
+
+.w {
+  &-100 {
+    width: 100%;
+  }
+}
+
+.h {
+  &-100 {
+    height: 100%;
+  }
+}
+
+.top {
+  &-0 {
+    top: 0;
+  }
+}
+
+.left {
+  &-0 {
+    top: 0;
+  }
+}
+
+.position {
+  &-relative {
+    position: relative;
+  }
+  &-absolute {
+    position: absolute;
+  }
+}
+
+.d {
+  &-flex { display: flex; }
+}
+
+.flex {
+  &-basis {
+    &-auto {
+      flex-basis: auto;
+    }
+  }
+  &-grow {
+    &-1 {
+      flex-grow: 1;
+    }
+  }
+  &-direction-column {
+    flex-direction: column;
+  }
+}
+
+.justify-content {
+  &-space-between {
+    justify-content: space-between;
+  }
+  &-flex-end {
+    justify-content: flex-end;
+  }
+}

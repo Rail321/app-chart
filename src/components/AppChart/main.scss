@@ -1,0 +1,59 @@
+.app-chart {
+  &__wrapper {}
+  &__row {}
+  &__col {}
+  &__col-inner {}
+  &__cell {
+    height: 50px;
+  }
+    
+  &-text {
+    font-size: 16px;
+    line-height: 19px;
+    &, &_sub {
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      color: #414042;
+    }
+    &_sub {
+      font-size: 14px;
+      line-height: 16px;
+      opacity: 0.5;
+    }
+  }
+
+  &-divider {
+    border-bottom-style: solid;
+    &, &_dashed {
+      border-bottom-width: 1px;
+      border-bottom-color: rgba(0,0,0,.16);
+    }
+    &_dashed {
+      border-bottom-style: dashed;
+    }
+  }
+    
+  &-footer {
+    &__wrapper {
+      padding-top: 18px;
+    }
+    &__row {
+      margin-left: -5px;
+      margin-right: -5px;
+    }
+    &__col {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    &__col-inner {}
+  }
+  
+  &-main {
+    transform: scaleY(-1);
+  }
+
+  &-background-color {
+    background-image: linear-gradient(180deg, rgba(82, 193, 186, 0) 0%, #52C1BA 100%)
+  }
+}
