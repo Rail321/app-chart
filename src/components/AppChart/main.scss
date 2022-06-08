@@ -56,4 +56,32 @@
   &-background-color {
     background-image: linear-gradient(180deg, rgba(82, 193, 186, 0) 0%, #52C1BA 100%)
   }
+
+  &-item {
+    &-group {
+      opacity: 0;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    &-foreign {
+      -webkit-filter: drop-shadow( 0px -4px 14px rgba(0, 0, 0, 0.15));
+      filter: drop-shadow( 0px -4px 14px rgba(0, 0, 0, 0.15));
+    }
+    &-prompt {
+      width: 100%;
+      height: 100%;
+      transform: scaleY(-1);
+      &-body {
+        width: 100%;
+        height: 100%;
+        background: #FFF;
+        border-radius: 2px;
+      }
+      &-text {
+        font-size: 16px;
+        line-height: 19px;
+      }
+    }
+  }
 }

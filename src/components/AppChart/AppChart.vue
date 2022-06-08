@@ -58,6 +58,59 @@
                     stroke-width="2"
                     v-bind:points="linePoints"
                   />
+
+                  <g class="app-chart-item-group"
+                    v-for="(value, idx) of valueList"
+                    v-bind:key="idx"
+                  >
+                    <rect
+                      fill="transparent"
+                      y="0"
+                      v-bind:x="rectXList[ idx ]"
+                      v-bind:width="itemWidth"
+                      v-bind:height="chartHeight"
+                    />
+
+                    <circle
+                      fill="#52C1BA"
+                      r="6"
+                      v-bind:cx="xPointList[ idx ]"
+                      v-bind:cy="yPointList[ idx ]"
+                    />
+
+                    <line
+                      stroke="#52C1BA"
+                      stroke-width="1"
+                      y1="0"
+                      v-bind:x1="xPointList[ idx ]"
+                      v-bind:x2="xPointList[ idx ]"
+                      v-bind:y2="yPointList[ idx ]"
+                    />
+
+                    <foreignObject class="app-chart-item-foreign"
+                      v-bind:width="promptWidth"
+                      v-bind:height="promptHeight"
+                      v-bind:x="xPromptList[ idx ]"
+                      v-bind:y="yPromptList[ idx ]"
+                    >
+                      <div class="app-chart-item-prompt"
+                        v-bind:style="{ 'padding-bottom': `${ promptPadding }px` }"
+                      >
+                        <div class="app-chart-item-prompt-body d-flex justify-content-center align-items-center">
+                          <div>
+                            <span class="app-chart-text_sub app-chart-item-prompt-text">{{ markList[ idx ] }}</span>
+                            <span>&nbsp;&nbsp;</span>
+                            <span class="app-chart-text app-chart-item-prompt-text">{{ valueList[ idx ] }} заказов</span>
+                          </div>
+                        </div>
+                      </div>
+                    </foreignObject>
+
+                    <polygon
+                      fill="#FFF"
+                      v-bind:points="`${ xPointList[ idx ] },${ yPointList[ idx ] + promptMargin + 4 } ${ xPointList[ idx ] + 6 },${ yPointList[ idx ] + promptMargin + 9 } ${ xPointList[ idx ] - 6 },${ yPointList[ idx ] + promptMargin + 9 }`"
+                    />
+                  </g>
                 </svg>
               </div>
             </div>
@@ -86,14 +139,23 @@
 
 <script>
   import useAppChart from './main'
-  import { paddingSide, paddingTop } from './options'
+  import { paddingSide, paddingTop, promptWidth, promptHeight, promptPadding, promptMargin } from './options'
 
   export default {
     setup() {
-      const { markList, intervalList, clipPathBackground, linePoints, chartSvg } = useAppChart()
+      const {
+        markList, intervalList, clipPathBackground, linePoints, chartSvg,
+        valueList, xPointList, yPointList,
+        chartHeight, itemWidth, rectXList,
+        xPromptList, yPromptList
+      } = useAppChart()
+
       return {
-        paddingSide, paddingTop,
-        markList, intervalList, clipPathBackground, linePoints, chartSvg
+        paddingSide, paddingTop, promptWidth, promptHeight, promptPadding, promptMargin,
+        markList, intervalList, clipPathBackground, linePoints, chartSvg,
+        valueList, xPointList, yPointList,
+        chartHeight, itemWidth, rectXList,
+        xPromptList, yPromptList
       }
     }
   }

@@ -81,4 +81,13 @@
   &-flex-end {
     justify-content: flex-end;
   }
+  &-center {
+    justify-content: center;
+  }
+}
+
+.align-items {
+  &-center {
+    align-items: center;
+  }
 }
