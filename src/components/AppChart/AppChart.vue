@@ -108,7 +108,7 @@
 
                     <polygon
                       fill="#FFF"
-                      v-bind:points="`${ xPointList[ idx ] },${ yPointList[ idx ] + promptMargin + 4 } ${ xPointList[ idx ] + 6 },${ yPointList[ idx ] + promptMargin + 9 } ${ xPointList[ idx ] - 6 },${ yPointList[ idx ] + promptMargin + 9 }`"
+                      v-bind:points="trianglePoints[ idx ]"
                     />
                   </g>
                 </svg>
@@ -147,7 +147,7 @@
         markList, intervalList, clipPathBackground, linePoints, chartSvg,
         valueList, xPointList, yPointList,
         chartHeight, itemWidth, rectXList,
-        xPromptList, yPromptList
+        xPromptList, yPromptList, trianglePoints
       } = useAppChart()
 
       return {
@@ -155,7 +155,7 @@
         markList, intervalList, clipPathBackground, linePoints, chartSvg,
         valueList, xPointList, yPointList,
         chartHeight, itemWidth, rectXList,
-        xPromptList, yPromptList
+        xPromptList, yPromptList, trianglePoints
       }
     }
   }

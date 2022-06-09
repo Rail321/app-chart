@@ -120,10 +120,23 @@ const useAppChart = () => {
     } )
   } )
 
+  const trianglePoints = computed( () => {
+    if ( !isMounted.value ) return ''
+    const list = []
+    valueList.value.forEach( ( value, idx ) => {
+      const p0 = `${ xPointList.value[ idx ] },${ yPointList.value[ idx ] + promptMargin + 4 }`
+      const p1 = `${ xPointList.value[ idx ] + 6 },${ yPointList.value[ idx ] + promptMargin + 9 }`
+      const p2 = `${ xPointList.value[ idx ] - 6 },${ yPointList.value[ idx ] + promptMargin + 9 }`
+      list.push( `${ p0 } ${ p1 } ${ p2 }` )
+    } )
+    console.log( list )
+    return list
+  } )
+
   return {
     markList, intervalList, clipPathBackground, linePoints, chartSvg, valueList, xPointList, yPointList,
     chartHeight, itemWidth, rectXList,
-    xPromptList, yPromptList
+    xPromptList, yPromptList, trianglePoints
   }
 }
 
